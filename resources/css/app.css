@@ -3622,7 +3622,7 @@ header .header a h2.main-h2 {
 .main-container aside .categories ul li {
   color: blue;
 }
-.main-container aside .categories ul li a {
+.main-container aside .categories ul li a.categories__elem {
   display: block;
   box-sizing: border-box;
   border-left: none;
@@ -3634,14 +3634,18 @@ header .header a h2.main-h2 {
   padding: 4px 15px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
-.main-container aside .categories .submenu-fridges {
+.main-container aside .categories ul li a.categories__elem .fa-angle-down {
+  display: none;
+}
+.main-container aside .categories .submenu {
   width: 200px;
   height: auto;
-  display: none;
+  display: inline-block;
   position: absolute;
+  visibility: hidden;
   top: 0;
 }
-.main-container aside .categories .submenu-fridges:hover {
+.main-container aside .categories .submenu:hover {
   color: green;
 }
 .main-container aside .ads {
@@ -3708,17 +3712,37 @@ header .header a h2.main-h2 {
   flex-wrap: wrap;
 }
 .main-container main .catalog .card {
+  box-sizing: border-box;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 180px;
   height: 300px;
-  border: 2px dotted #e77a67;
+  border: 2px solid #e77a67;
   border-radius: 5px;
   background-color: #fff;
   padding: 5px;
   margin: 20px;
+  filter: brightness(60%);
+}
+.main-container main .catalog .card:hover {
+  filter: brightness(100%);
+  border: 5px double #e77a67;
+}
+.main-container main .catalog .card .card:hover .text {
+  display: block;
+  width: 100%;
+  color: white;
+  z-index: 100;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  text-align: center;
+}
+.main-container main .catalog .card .text {
+  display: none;
 }
 .main-container main .catalog .card a.item-name {
   text-align: center;
@@ -3735,16 +3759,19 @@ header .header a h2.main-h2 {
 .main-container main .catalog .card a.cart {
   display: block;
   margin: 10px auto;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 25%);
   width: 90%;
   height: 30px;
   color: white;
   background-color: #e92727;
   padding: 3px;
-  border-radius: 9px;
   font-size: 15px;
   text-decoration: none;
   text-align: center;
   font-family: Montserrat, sans-serif;
+}
+.main-container main .catalog .card a.cart:hover {
+  cursor: pointer;
 }
 .main-container main table {
   border: 1px solid #000;
